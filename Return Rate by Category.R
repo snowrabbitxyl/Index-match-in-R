@@ -18,10 +18,9 @@ cust_rtn <- wfs_rpt_23 %>%
 cust_rtn <- cust_rtn[-which(cust_rtn$DISPOSITION== "DISPOSE" & cust_rtn$FAULT == "WFS"),]
 head(cust_rtn)
 
-# get po number and paste the result to "PO number" file, runtime set as python. Then copy the result to SQL
+# get po number and paste the result to SQL
 str_po<-cat(paste0(sprintf('"%s"', cust_rtn$PO.), collapse = ", "))
 
-## paste PO number to SQL Query and import results
 
 library('readxl')
 
